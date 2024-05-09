@@ -1,7 +1,7 @@
 
 ###############################################################################
 # This base workflow can be used in any repository that builds and pushes
-# a docker image to AWS ECR. Additional steps can be added that test the code
+# a docker image to Azure Container Registry. Additional steps can be added that test the code
 # contained within the image before building the image to ensure code works. 
 
 # Add secrets to Github Actions
