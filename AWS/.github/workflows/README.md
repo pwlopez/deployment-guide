@@ -5,7 +5,7 @@ TO DO:
 - Add Dockerfile
 - Add lambda handler for invoking Sagemaker endpoint
 - Add script for deploying container to Sagemaker endpoint
-    - need to add AWS credentials to Github Actions secrets for logging into boto3
+    - add AWS credentials to Github Actions secrets for logging into boto3
 - Add script for testing endpoint
 - Add guide for setting permissions and roles in AWS
 - Add requirements.txt
