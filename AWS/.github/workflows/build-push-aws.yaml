@@ -39,18 +39,25 @@ jobs:
         run: |
           docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
+          echo "ECR_REGISTRY=$REGISTRY/$REPOSITORY:$IMAGE_TAG" >> $GITHUB_ENV
 
 
       - name: Deploy to Sagemaker Endpoint
-        env:
-          AWS-ACCESS-KEY: ${{ secrets.AWS_ACCESS_KEY_ID  }}
-          AWS-SECRET-KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: 3.10
 
       - name: Install dependencies
         run: |
-          python3 -m pip install -upgrade pip
-          pip3 install -r requirements.txt
-          python3 /app/deploy.py
+          python -m pip install -upgrade pip
+          pip install -r requirements.txt
+
+      - name: Deploy to Sagemaker Endpoint
+        env:
+          AWS-ACCESS-KEY: ${{ secrets.AWS_ACCESS_KEY_ID  }}
+          AWS-SECRET-KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }}
+          MODEL-NAME: "name_of_model"
+          MODEL-PATH: "s3://PATH/TO/MODEL/name_of_model.tar.gz"
+        run: |
+          python /app/deploy.py
