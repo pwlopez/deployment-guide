@@ -1,7 +1,6 @@
 This folder contains all the necesary components and a repo template for machine learning projects in AWS
 
 TO DO:
-- Organize folder structure
 - Add Dockerfile for running custom model
 - Add lambda handler for invoking Sagemaker endpoint
 - Add script for deploying container to Sagemaker endpoint
@@ -15,3 +14,8 @@ TO DO:
     - AWS API Gateway
 - Add infrastructure guide for code deploy
     - AWS ECS
+- Add logging tools
+    - raw inputs
+    - transformed inputs
+    - model outputs
+    - 
