@@ -31,7 +31,6 @@ create_model_response = sm_client.create_model(
 
 endpoint_config_name = f"{MODEL_NAME}-config-{datetime.now()}"
 
-# TO DO: Move all of this to a config.yaml file (?)
 sm_client.create_endpoint_config(
     EndpointConfigName=endpoint_config_name,
     ProductionVariants=[{

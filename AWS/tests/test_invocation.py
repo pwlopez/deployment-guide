@@ -13,9 +13,7 @@ session = boto3.Session(
 
 sm_client = session.client("sagemaker")
 
-# TO DO: change file name to match local test file
-with open(file_name, "rb") as f:
-    payload = f.read()
+payload = json.loads("/test_file.json")
 
 response = sm_client.invoke_endpoint(
     EndpointName=ENDPOINT_NAME,

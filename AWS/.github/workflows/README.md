@@ -19,3 +19,7 @@ TO DO:
     - transformed inputs
     - model outputs
     - 
+
+
+* NOTE: add assertions for function parameter types to ensure the function is getting
+only EXACTLY what it requires or crash
